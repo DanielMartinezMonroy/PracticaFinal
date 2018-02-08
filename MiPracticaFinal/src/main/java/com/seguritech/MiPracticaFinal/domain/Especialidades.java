@@ -42,6 +42,4 @@ public class Especialidades implements Serializable{
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-    
 }

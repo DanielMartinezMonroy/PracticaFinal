@@ -1,0 +1,7 @@
+com\seguritech\MiPracticaFinal\domain\repositories\PersonasRepository.class
+com\seguritech\MiPracticaFinal\domain\Personas.class
+com\seguritech\MiPracticaFinal\controller\PersonasController.class
+com\seguritech\MiPracticaFinal\MiPracticaFinalApplication.class
+com\seguritech\MiPracticaFinal\controller\EspecialidadesController.class
+com\seguritech\MiPracticaFinal\domain\repositories\EspecialidadesRepository.class
+com\seguritech\MiPracticaFinal\domain\Especialidades.class

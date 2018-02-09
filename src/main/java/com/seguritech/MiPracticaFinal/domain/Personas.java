@@ -44,14 +44,9 @@ public abstract class Personas implements Serializable{
     @Column(name = "fecha_creacion")
     private String fecha;
     
-    @Column(name = "tipo_persona")
+    @Column(name = "tipo_persona",insertable = false, updatable = false)
     private String tipoPersona;
-    ////////////////////////////////////////////////////77
-    @Column(name = "obra_social_id")
-    private Long idObraSocial;
     
-    @Column(name = "especialidad_id")
-    private Long idEspecialidad;
     
     public Long getId() {
         return id;
@@ -116,31 +111,12 @@ public abstract class Personas implements Serializable{
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
-
+    
     public String getTipoPersona() {
         return tipoPersona;
     }
 
     public void setTipoPersona(String tipoPersona) {
         this.tipoPersona = tipoPersona;
-    }
-    
-    //77777777777777777777777777777777777777777777777777777
-    
-    public Long getIdObraSocial() {
-        return idObraSocial;
-    }
-
-    public void setIdObraSocial(Long idObraSocial) {
-        this.idObraSocial = idObraSocial;
-    }
-    
-    
-    public Long getIdEspecialidad() {
-        return idEspecialidad;
-    }
-
-    public void setIdEspecialidad(Long idEspecialidad) {
-        this.idEspecialidad = idEspecialidad;
-    }
+    }   
 }

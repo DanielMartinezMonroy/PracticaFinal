@@ -23,9 +23,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "personas")
-//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-//@DiscriminatorColumn(name = "tipo_persona", discriminatorType = DiscriminatorType.STRING)
-public class Personas implements Serializable{
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo_persona", discriminatorType = DiscriminatorType.STRING)
+public abstract class Personas implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "persona_id")
@@ -39,13 +39,6 @@ public class Personas implements Serializable{
     private String email;
 
     private String telefono;
-
-    @Column(name = "obra_social_id")
-    private Long idObraSocial;
-    
-    @Column(name = "especialidad_id")
-    private Long idEspecialidad;
-    
     private String estado;
     
     @Column(name = "fecha_creacion")
@@ -100,22 +93,6 @@ public class Personas implements Serializable{
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    public Long getIdObraSocial() {
-        return idObraSocial;
-    }
-
-    public void setIdObraSocial(Long idObraSocial) {
-        this.idObraSocial = idObraSocial;
-    }
-
-    public Long getIdEspecialidad() {
-        return idEspecialidad;
-    }
-
-    public void setIdEspecialidad(Long idEspecialidad) {
-        this.idEspecialidad = idEspecialidad;
     }
 
     public String getEstado() {

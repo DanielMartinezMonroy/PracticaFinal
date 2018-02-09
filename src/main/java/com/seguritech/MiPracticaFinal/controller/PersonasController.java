@@ -24,6 +24,7 @@ public class PersonasController {
     @Autowired
     private PersonasRepository persRepository;
     
+    /*
     @RequestMapping(value="/personas")
     public List<Personas> listAll(){
         List<Personas>persona=persRepository.findAll();
@@ -38,5 +39,5 @@ public class PersonasController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(persona);
-    }
+    }*/
 }

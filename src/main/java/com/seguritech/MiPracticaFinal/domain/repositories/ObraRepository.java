@@ -5,13 +5,13 @@
  */
 package com.seguritech.MiPracticaFinal.domain.repositories;
 
-import com.seguritech.MiPracticaFinal.domain.Personas;
+import com.seguritech.MiPracticaFinal.domain.ObrasSociales;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
- * @author Usuario
+ * @author Daniel
  */
-public interface PersonasRepository extends JpaRepository<Personas, Long>{
+public interface ObraRepository extends JpaRepository<ObrasSociales, Long>{
     
 }

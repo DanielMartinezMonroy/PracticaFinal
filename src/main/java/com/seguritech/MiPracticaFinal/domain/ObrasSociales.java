@@ -15,17 +15,16 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Usuario
+ * @author Daniel
  */
 @Entity
-@Table(name="especialidades")
-public class Especialidades implements Serializable{
+@Table(name = "obras_sociales")
+public class ObrasSociales implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="especialidad_id")
+    @Column(name = "obra_social_id")
     private Long id;
-    
-    private String descripcion;
+    private String nombre;
 
     public Long getId() {
         return id;
@@ -35,11 +34,11 @@ public class Especialidades implements Serializable{
         this.id = id;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

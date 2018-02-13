@@ -47,7 +47,6 @@ public abstract class Personas implements Serializable{
     @Column(name = "tipo_persona",insertable = false, updatable = false)
     private String tipoPersona;
     
-    
     public Long getId() {
         return id;
     }

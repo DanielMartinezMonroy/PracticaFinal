@@ -6,7 +6,8 @@
 package com.seguritech.MiPracticaFinal.controller;
 
 import com.seguritech.MiPracticaFinal.domain.Especialidades;
-import com.seguritech.MiPracticaFinal.domain.repositories.EspecialidadesRepository;
+import com.seguritech.MiPracticaFinal.domain.ObrasSociales;
+import com.seguritech.MiPracticaFinal.domain.repositories.ObraRepository;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -23,51 +24,51 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author Usuario
+ * @author Daniel
  */
 @RestController
-public class EspecialidadesController {
+public class ObrasController {
     @Autowired
-    private EspecialidadesRepository espRepository;
+    private ObraRepository obraRepository;
     
     //Consulta de datos
-    @RequestMapping(value = "/especialidades")
-    public List<Especialidades> listAll(){
-        List<Especialidades>especialidad=espRepository.findAll();
-        System.out.println(especialidad.size());
-        return especialidad;
+    @RequestMapping(value = "/obrasocial")
+    public List<ObrasSociales> listAll(){
+        List<ObrasSociales>obsocial=obraRepository.findAll();
+        System.out.println(obsocial.size());
+        return obsocial;
     }
     //Insertar datos
-    @PostMapping("/especialidades")
-    public ResponseEntity<Especialidades> create(@RequestBody Especialidades especialidad) throws URISyntaxException{
-        if(especialidad.getId()!=null){
+    @PostMapping("/obrasocial")
+    public ResponseEntity<ObrasSociales> create(@RequestBody ObrasSociales obsocial) throws URISyntaxException{
+        if(obsocial.getId()!=null){
             return ResponseEntity.badRequest().header("Error", "El id debe ser nulo").body(null);
         }
-        espRepository.save(especialidad);
-        return ResponseEntity.created(new URI("/especialidades/"+especialidad.getId())).body(especialidad);
+        obraRepository.save(obsocial);
+        return ResponseEntity.created(new URI("/obrasocial/"+obsocial.getId())).body(obsocial);
     }
     //Actualizar datos
-    @PutMapping("/especialidades")
-    public ResponseEntity<Especialidades> update(@RequestBody Especialidades especialidad) throws URISyntaxException{
-        if(especialidad.getId()==null){
+    @PutMapping("/obrasocial")
+    public ResponseEntity<ObrasSociales> update(@RequestBody ObrasSociales obSocial) throws URISyntaxException{
+        if(obSocial.getId()==null){
             return ResponseEntity.badRequest().header("Error", "El id NO debe ser nulo").body(null);
         }
-        espRepository.save(especialidad);
-        return ResponseEntity.ok().body(especialidad);
+        obraRepository.save(obSocial);
+        return ResponseEntity.ok().body(obSocial);
     }   
     //Borrado de Datos
-    @DeleteMapping("/especialidades/{id}")
-    public ResponseEntity <Especialidades> delete(@PathVariable("id")Long id){
-        espRepository.delete(id);
+    @DeleteMapping("/obrasocial/{id}")
+    public ResponseEntity <ObrasSociales> delete(@PathVariable("id")Long id){
+        obraRepository.delete(id);
         return ResponseEntity.ok().build();
     }
     //Busqueda por id
-    @GetMapping("/especialidades/{id}")
-    public ResponseEntity<Especialidades> getEspecialidad(@PathVariable("id")Long id){
-        Especialidades especialidad=espRepository.findOne(id);
-        if(especialidad==null){
+    @GetMapping("/obrasocial/{id}")
+    public ResponseEntity<ObrasSociales> getObrasSociales(@PathVariable("id")Long id){
+        ObrasSociales obSocial=obraRepository.findOne(id);
+        if(obSocial==null){
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(especialidad);
+        return ResponseEntity.ok(obSocial);
     }
 }

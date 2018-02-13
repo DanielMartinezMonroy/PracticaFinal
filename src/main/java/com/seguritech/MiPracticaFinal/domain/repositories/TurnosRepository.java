@@ -5,13 +5,13 @@
  */
 package com.seguritech.MiPracticaFinal.domain.repositories;
 
-import com.seguritech.MiPracticaFinal.domain.Especialidades;
+import com.seguritech.MiPracticaFinal.domain.Turnos;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
- * @author Usuario
+ * @author Daniel
  */
-public interface EspecialidadesRepository extends JpaRepository<Especialidades, Long>{
+public interface TurnosRepository extends JpaRepository<Turnos, Long>{
     
 }

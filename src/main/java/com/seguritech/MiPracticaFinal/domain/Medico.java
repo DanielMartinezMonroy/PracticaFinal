@@ -8,7 +8,6 @@ package com.seguritech.MiPracticaFinal.domain;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-
 /**
  *
  * @author Usuario
@@ -19,11 +18,22 @@ public class Medico extends Personas{
     @Column(name = "especialidad_id")
     private Long idEspecialidad;
     
+    @Column(name = "baja_logica")
+    private Long bajaLogica;
+    
     public Long getIdEspecialidad() {
         return idEspecialidad;
     }
 
     public void setIdEspecialidad(Long idEspecialidad) {
         this.idEspecialidad = idEspecialidad;
+    }
+
+    public Long getBajaLogica() {
+        return bajaLogica;
+    }
+
+    public void setBajaLogica(Long bajaLogica) {
+        this.bajaLogica = bajaLogica;
     }
 }

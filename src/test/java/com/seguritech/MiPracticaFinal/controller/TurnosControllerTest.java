@@ -5,55 +5,56 @@
  */
 package com.seguritech.MiPracticaFinal.controller;
 
-import com.seguritech.MiPracticaFinal.domain.Especialidades;
+import com.seguritech.MiPracticaFinal.domain.Turnos;
 import java.util.List;
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
 /**
  *
  * @author Daniel
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class EspecialidadesControllerTest {
+public class TurnosControllerTest {
     
     private MockMvc mockMvc;
     
     @Autowired
-    private EspecialidadesController espCont;
+    private TurnosController turnCont;
     
-    public EspecialidadesControllerTest() {
+    public TurnosControllerTest() {
     }
+
     @Before
     public void inicializar(){
-        mockMvc=MockMvcBuilders.standaloneSetup(espCont).build();
+        mockMvc=MockMvcBuilders.standaloneSetup(turnCont).build();
     }
-    /**
-     * Test of listAll method, of class EspecialidadesController.
-     */
+
     @Test
     public void testListAll() {
         System.out.println("listAll");
-        List<Especialidades> listAll=espCont.listAll();
-        assertEquals(listAll.size(), 4);
+        List<Turnos> listAll=turnCont.listAll();
+        assertEquals(listAll.size(), 1);
     }
     @Test
-    public void testGetEspecialidad() throws Exception {
-        System.out.println("getEspecialidad");
-        mockMvc.perform(get("/especialidades/1")
-                .accept(MediaType.APPLICATION_JSON)).
-                andExpect(status().isOk())
+    public void testGetTurnos() throws Exception {
+        System.out.println("getTurno");
+        mockMvc.perform(get("/turno/1")
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").isNumber())
-                .andExpect(jsonPath("$.descripcion").isString());
-    }   
+                .andExpect(jsonPath("$.estado").isString());
+    }
 }
